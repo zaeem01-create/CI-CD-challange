@@ -23,8 +23,13 @@ env:
 
 
 jobs:
+  integration:
+    uses : ./.github/workflows/python-app.yml
+    permissions: 
+      contents: read
+      checks: write
   build:
-
+    needs: integration
     runs-on: ubuntu-latest
     permissions:
       contents: read
